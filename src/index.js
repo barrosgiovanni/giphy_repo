@@ -1,17 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// to run React properly ...
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// importing the App component ...
+import App from "./App";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// importing the sass file to apply style ...
+import "./App.scss";
+
+// getting the element with id='root' as a reference ...
+const el = document.getElementById("root");
+
+// using ReactDOM to create the root ...
+const root = ReactDOM.createRoot(el);
+
+// rendering the App component ...
+root.render(<App />);
