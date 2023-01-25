@@ -3,10 +3,6 @@
   height: 100vh;
 }
 
-* {
-  border: 1px solid red;
-}
-
 .left-scene {
   flex: 0 0 60%;
   position: sticky;
@@ -32,16 +28,6 @@
     margin: 20px 20px 0px 20px;
     padding: 0;
   }
-
-  // &:before {
-  //   content: '\F002';
-  //   position: absolute;
-  //   top: 35px;
-  //   left: 60px;
-  //   font-family: FontAwesome;
-  //   font-size: 2.6em;
-  //   opacity: 0.4;
-  // }
 
   .selected-gif {
     text-align: center;
