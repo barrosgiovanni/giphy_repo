@@ -2,8 +2,10 @@ import React, { Component } from "react";
 
 class Gif extends Component {
 
-  handleClick = (event) => {
-    console.log(event);
+  handleClick = () => {
+    if (this.props.changeSelected) {
+      this.props.changeSelected(this.props.id);
+    }
   }
 
   render() {
@@ -14,7 +16,7 @@ class Gif extends Component {
 
       <img src={url} alt="giphy" className="gif" onClick={this.handleClick} />
 
-    )
+    );
 
   }
 

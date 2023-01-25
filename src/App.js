@@ -18,7 +18,8 @@ class App extends Component {
       selectedGifId: "R6gvnAxj2ISzJdbA63"
     }
 
-    this.search('gif');
+    this.search = this.search.bind(this);
+    this.changeSelected = this.changeSelected.bind(this);
 
   }
 
@@ -38,11 +39,11 @@ class App extends Component {
 
   }
 
-  changeSelected = () => {
+  changeSelected(id) {
 
-    // this.setState({
-    // selectedGifId: 'newid'
-    //})
+    this.setState({
+      selectedGifId: id
+    });
 
   }
 
@@ -66,7 +67,7 @@ class App extends Component {
 
         <div className="right-scene">
 
-          <GifList gifs={this.state.gifs} className="gif-list"/>
+          <GifList gifs={this.state.gifs} className="gif-list" changeSelected={this.changeSelected} />
 
         </div>
 
