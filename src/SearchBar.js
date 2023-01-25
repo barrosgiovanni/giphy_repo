@@ -1,20 +1,26 @@
-// importing sass file to apply style to document ...
-import "./App.scss";
+import React, { Component } from "react";
 
-import React from "react";
+class SearchBar extends Component {
 
-function SearchBar() {
+  handleChange = (event) => {
+    this.props.searchFunction(event.target.value);
+  }
 
-  return (
+  render() {
 
-    <div>
+    return (
 
-      <i class="fa-solid fa-magnifying-glass fa-4x"></i>
-      <input type="text" className="form-search form-control" />
-      
-    </div>
+      <div>
 
-  )
+        <i className="fa-solid fa-magnifying-glass fa-4x"></i>
+        <input type="text" className="form-search form-control" onChange={this.handleChange} />
+
+      </div>
+
+    )
+
+  }
+
 }
 
 export default SearchBar;

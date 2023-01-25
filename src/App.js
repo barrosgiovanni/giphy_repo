@@ -1,44 +1,80 @@
 // importing sass file to apply style to document ...
 import "./App.scss";
 
-import React from "react";
+import React, { Component } from "react";
 
 import SearchBar from "./SearchBar";
 import Gif from "./Gif";
 import GifList from "./GifList";
 
-function App() {
+class App extends Component {
 
-  const gifs = [
-    { id: 'R6gvnAxj2ISzJdbA63' },
-    { id: 'nQ6re8HGu87uxVa7Sp' }
-  ];
+  constructor(props) {
 
-  return (
+    super(props);
 
-    <div>
+    this.state = {
+      gifs: [],
+      selectedGifId: "R6gvnAxj2ISzJdbA63"
+    }
 
-      <div className="left-scene">
+    this.search('gif');
 
-        <SearchBar />
+  }
 
-        <div className="selected-gif">
+  search = (query) => {
 
-          <Gif id="R6gvnAxj2ISzJdbA63"/>
+    const giphy = require('giphy-api')('vbE8wLQX2RbL6INhqnu8LWqoWvueR25y');
+
+    giphy.search({
+      q: query,
+      rating: 'g',
+      limit: 10
+    }, (error, response) => {
+      this.setState({
+        gifs: response.data
+      });
+    });
+
+  }
+
+  changeSelected = () => {
+
+    // this.setState({
+    // selectedGifId: 'newid'
+    //})
+
+  }
+
+  render() {
+
+    return (
+
+      <div>
+
+        <div className="left-scene">
+
+          <SearchBar searchFunction={this.search} />
+
+          <div className="selected-gif">
+
+            <Gif id={this.state.selectedGifId} />
+
+          </div>
+
+        </div>
+
+        <div className="right-scene">
+
+          <GifList gifs={this.state.gifs} className="gif-list"/>
 
         </div>
 
       </div>
 
-      <div className="right-scene">
+    )
 
-        <GifList gifs={gifs} className="gif-list"/>
-
-      </div>
-      
-    </div>
-
-  )
+  }
 
 }
 

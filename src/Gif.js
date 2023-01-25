@@ -1,17 +1,22 @@
-// importing sass file to apply style to document ...
-import "./App.scss";
+import React, { Component } from "react";
 
-import React from "react";
+class Gif extends Component {
 
-function Gif({id}) {
+  handleClick = (event) => {
+    console.log(event);
+  }
 
-  const url = `https://media2.giphy.com/media/${id}/giphy.gif?cid=ecf05e47e94b24ac8346173264e08c710c852dfbec1512f0&rid=giphy.gif&ct=g`;
+  render() {
 
-  return (
+    const url = `https://media2.giphy.com/media/${this.props.id}/giphy.gif?cid=ecf05e47e94b24ac8346173264e08c710c852dfbec1512f0&rid=giphy.gif&ct=g`;
 
-    <img src={url} alt="giphy" className="gif" />
-    
-  )
+    return (
+
+      <img src={url} alt="giphy" className="gif" onClick={this.handleClick} />
+
+    )
+
+  }
 
 }
 

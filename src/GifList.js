@@ -1,25 +1,28 @@
-// importing sass file to apply style to document ...
-import "./App.scss";
-
-import React from "react";
+import React, { Component } from "react";
 
 import Gif from "./Gif";
 
-function GifList({gifs}) {
+class GifList extends Component {
 
-  return (
+  renderList = () => {
 
-    <div className="gif-list">
+    return this.props.gifs.map(gif => <Gif id={gif.id} key={gif.id} className="gif" />)
 
-      {gifs.map(gif => {
+  }
 
-        return <Gif id={gif.id} key={gif.id} className="gif" />
+  render() {
 
-      })}
+    return (
 
-    </div>
+      <div className="gif-list">
 
-  )
+        {this.renderList()}
+
+      </div>
+
+    )
+
+  }
 
 }
 
