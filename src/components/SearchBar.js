@@ -7,18 +7,12 @@ class SearchBar extends Component {
   }
 
   render() {
-
     return (
-
       <div>
-
         <i className="fa-solid fa-magnifying-glass fa-4x"></i>
         <input type="text" className="form-search form-control" onChange={this.handleChange} />
-
       </div>
-
     )
-
   }
 
 }
