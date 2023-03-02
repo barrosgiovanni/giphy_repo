@@ -6,6 +6,7 @@ import React, { Component } from "react";
 import SearchBar from "./components/SearchBar";
 import Gif from "./components/Gif";
 import GifList from "./components/GifList";
+import giphy from "./images/Poweredby_100px-White_VertText.png";
 
 class App extends Component {
 
@@ -46,6 +47,7 @@ class App extends Component {
           <div className="selected-gif">
             <Gif id={this.state.selectedGifId} />
           </div>
+          <img className='attribution-mark' src={giphy} alt='powered by giphy'/>
         </div>
         <div className="right-scene">
           <GifList gifs={this.state.gifs} className="gif-list" changeSelected={this.changeSelected} />
@@ -53,7 +55,7 @@ class App extends Component {
       </div>
     )
   }
-  
+
 }
 
 export default App;
